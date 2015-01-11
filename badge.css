@@ -1,0 +1,21 @@
+.divRoleOdd{
+	background-color: blue;
+	color: white;
+	clear: none;
+
+}
+
+.divRoleEven{
+	background-color: green;
+	color: white;
+	clear: right;
+}
+
+#gCanvas{
+/*
+	width: 100px;
+	height: 100px;
+*/
+	display: block;
+	
+}

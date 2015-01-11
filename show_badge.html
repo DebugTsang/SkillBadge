@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Skill</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<LINK rel="stylesheet" href="./badge.css">
+		<script type="text/javascript">
+			var profile = {
+							    "id": "00000",
+							    "name": "Chan Tai Man",
+							    "email": "name@opensource.hk",
+							    "role": [
+							        "developer",
+							        "user",
+							        "maker"
+							    ],
+							    "tag": [
+							        "javascript",
+							        "full stack",
+							        "asterisk"
+							    ],
+							    "facebook": "https://www.facebook.com/winghei.law?fref=nf",
+							    "twitter": null,
+							    "google_plus": "https://plus.google.com/+otodockal/"
+							};
+
+			
+		</script>
+			
+	</head>
+	<body>
+		<div>
+		Name:<span id="spanName"></span><br/>
+		Email:<span id="spanEmail"></span><br/>
+		Role:<div id="divRole"></span><br/>
+		</div>
+		<canvas id="gCanvas" width="10000" height="10000">
+		</canvas>
+		
+	<script type="text/javascript" >
+		
+		var spanName = document.getElementById("spanName");
+		
+		spanName.innerHTML = profile.name;
+
+		var spanEmail = document.getElementById("spanEmail");
+		
+		spanName.innerHTML = profile.email;
+        
+        var divRole = document.getElementById("divRole");
+        console.log(profile.role);
+        
+        var catString = profile.role;
+        var htmlRole = "";
+        for (var i = 0; i < catString.length; i++){
+	        
+	        console.log(profile.role[i]);
+	        if (i%2 == 1){
+				htmlRole = htmlRole + "<div class=\"divRoleOdd\">"+profile.role[i]+"</div>";
+	        }
+	        else{
+		        htmlRole = htmlRole + "<div class=\"divRoleEven\">"+profile.role[i]+"</div>";
+	        }
+        }
+
+        divRole.innerHTML = htmlRole;
+        
+        
+        //
+        
+        // hexagon
+        var canvas = document.getElementById("gCanvas");
+        var cxt = canvas.getContext('2d');
+        console.log(cxt);
+        
+		var numberOfSides = 6,
+		    size = 80,
+		    Xcenter = 85,
+		    Ycenter = 85;
+		
+		for (var row = 0; row < 10; row++){
+			
+			console.log("row:"+row);
+			
+			for (var column = 0; column < 10; column++){
+				cxt.beginPath();
+				cxt.font = "20pt Arial";
+				cxt.moveTo (Xcenter +  size * Math.cos(0), Ycenter +  size *  Math.sin(0));          
+				
+				for (var i = 1; i <= numberOfSides;i += 1) {
+				    cxt.lineTo (Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides), Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+				    
+				   
+				}
+				
+				cxt.strokeStyle = "#000000";
+				cxt.lineWidth = 1;
+				cxt.stroke();
+				
+				Xcenter = Xcenter + (size * 3);
+			}
+			
+			Xcenter = 85;
+			Ycenter = Ycenter + (size *);
+			
+			console.log("Ycenter"+Ycenter);
+			
+		}
+		cxt.fillText("Sample String", 10, 50);
+	</script>
+	</body>
+
+</html>
