@@ -34,7 +34,7 @@
 		Email:<span id="spanEmail"></span><br/>
 		Role:<div id="divRole"></span><br/>
 		</div>
-		<canvas id="gCanvas" width="10000" height="10000">
+		<canvas id="gCanvas" width="2000" height="1000">
 		</canvas>
 		
 	<script type="text/javascript" >
@@ -88,25 +88,33 @@
 				cxt.moveTo (Xcenter +  size * Math.cos(0), Ycenter +  size *  Math.sin(0));          
 				
 				for (var i = 1; i <= numberOfSides;i += 1) {
-				    cxt.lineTo (Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides), Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+					
+				    cxt.lineTo (Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides), 
+				    			Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides));
 				    
 				   
 				}
 				
-				cxt.strokeStyle = "#000000";
-				cxt.lineWidth = 1;
+				cxt.strokeStyle = "#DD0000";				
+				cxt.fillStyle = "rgba(32, 45, 21, 1)";
+				cxt.lineWidth = 2;
+
 				cxt.stroke();
+				cxt.closePath();
 				
 				Xcenter = Xcenter + (size * 3);
+				
+				cxt.fillText("Danger", Xcenter-45, Ycenter+10);
 			}
 			
-			Xcenter = 85;
-			Ycenter = Ycenter + (size *);
+			Xcenter = 85 + ((row+1)%2)*size*1.5; // X Position change very row
+			Ycenter = Ycenter + (size * 1.73/2);
+// 			Ycenter = Ycenter + (size * 1.73);
 			
 			console.log("Ycenter"+Ycenter);
 			
 		}
-		cxt.fillText("Sample String", 10, 50);
+
 	</script>
 	</body>
 
