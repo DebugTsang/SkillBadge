@@ -39,6 +39,7 @@
 		
 	<script type="text/javascript" >
 		
+/*
 		var spanName = document.getElementById("spanName");
 		
 		spanName.innerHTML = profile.name;
@@ -64,11 +65,11 @@
         }
 
         divRole.innerHTML = htmlRole;
-        
-        
-        //
-        
+*/
+                
         // hexagon
+        
+        var lFade = new Date();
         var canvas = document.getElementById("gCanvas");
         var cxt = canvas.getContext('2d');
         console.log(cxt);
@@ -95,8 +96,8 @@
 				   
 				}
 				
-				cxt.strokeStyle = "#00FFCC";				
-				cxt.fillStyle = "rgba(32, 45, 21, 1)";
+				cxt.strokeStyle = "#222222";				
+				cxt.fillStyle = "#00FFCC";
 				cxt.lineWidth = 2;
 
 				cxt.stroke();
@@ -105,7 +106,7 @@
 				Xcenter = Xcenter + (size * 3);
 				
 				cxt.fillStyle= "#8DD1FF";
-				cxt.fillText("Skill", Xcenter-45, Ycenter+10);
+// 				cxt.fillText("Skill", Xcenter-45, Ycenter+10);
 			}
 			
 			Xcenter = 85 + ((row+1)%2)*size*1.5; // X Position change very row
@@ -113,8 +114,72 @@
 // 			Ycenter = Ycenter + (size * 1.73);
 			
 			console.log("Ycenter"+Ycenter);
-			
+						
 		}
+		
+		var roles = profile.role;
+	   
+        for (var i = 0; i < roles.length; i++){
+	        
+        	var ranX = Math.floor((Math.random() * 600) + 1);
+        	var ranY = Math.floor((Math.random() * 600) + 1);
+        	cxt.fillText(profile.role[i], ranX, ranY);
+        
+        }
+
+
+        // NAME
+        ranX = Math.floor((Math.random() * 600) + 1);
+		ranY = Math.floor((Math.random() * 600) + 1);
+		cxt.fillStyle = "#D147A3";
+        cxt.fillText(profile.name, ranX, ranY);
+        
+        // EMAIL
+        ranX = Math.floor((Math.random() * 600) + 1);
+		ranY = Math.floor((Math.random() * 600) + 1);
+		cxt.fillStyle = "#FFFF00";
+        cxt.fillText(profile.email, ranX, ranY);
+        
+		var tags = profile.tag;
+	   
+        for (var i = 0; i < tags.length; i++){
+	        
+        	var ranX = Math.floor((Math.random() * 600) + 1);
+        	var ranY = Math.floor((Math.random() * 600) + 1);
+        	
+        	cxt.fillStyle = "#2255CC";
+        	cxt.fillText(profile.tag[i], ranX, ranY);
+        
+        }
+
+
+/*
+	(function draw(){
+	    var now = new Date();
+	
+	    if (now - lFade > 20){
+		    
+	   	    	        	        
+	        for (var i = 0; i < tags.length; i++){
+		        cxt.fillStyle = "rgba(255,255,255,0.025)"
+	        
+// 				cxt.fillRect(0, 0, 500, 500);
+	        
+				lFade = now;
+
+				var ranX = Math.floor((Math.random() * 600) + 1);
+	        	var ranY = Math.floor((Math.random() * 600) + 1); 
+	        	
+	        	cxt.fillStyle =  "rgba(255,255,255,0.025)";//"#2255CC";
+	        	cxt.fillText(profile.tag[i], ranX, ranY);
+	        
+	        }
+
+	    }
+	
+	    setTimeout(draw, 1000/60);
+	})();
+*/
 
 	</script>
 	</body>
