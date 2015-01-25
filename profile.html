@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			var profile = {
+				    "id": "00000",
+				    "name": "Chan Tai Man",
+				    "email": "name@opensource.hk",
+				    "roles": [
+				        "developer",
+				        "user",
+				        "maker"
+				    ],
+				    "tag": [
+				        "javascript",
+				        "full stack",
+				        "asterisk"
+				    ],
+				    "facebook": "https://www.facebook.com/winghei.law?fref=nf",
+				    "twitter": null,
+				    "google_plus": "https://plus.google.com/+otodockal/"
+				};
+
+		</script>
+	</head>
+	<body>
+		<div id="title" class="title">Hong Kong Open Source Conference</div>
+		<div id="full_name" class="name">XXX</div>
+		<div id="role" class="role"></div>
+		<div id="tags" class="tags"></div>
+		<div id="qrcode" class="qrcode"></div>
+		
+		<script type="text/javascript">
+
+			var divFullName = document.getElementById("full_name");
+			divFullName.innerHTML = profile.name;
+			
+			var divRole = document.getElementById("role");
+
+			
+			var strRole = "";
+			for (var i = 0; i < profile.tag.length; i++){
+				
+				strRole = strRole + profile.roles[i] + ", ";
+	
+			}
+			
+			divRole.innerHTML = strRole;
+
+			
+			var divTags = document.getElementById("tags");
+			
+			var strTag = "";
+			
+			for (var i = 0; i < profile.tag.length; i++){
+				
+				strTag = strTag + profile.tag[i] + ", ";
+				
+			}
+			
+			divTags.innerHTML = strTag;
+			
+			
+		</script>
+	</body>
+</html>
