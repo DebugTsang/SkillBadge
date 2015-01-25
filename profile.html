@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-tw">
 	<head>
-		<title></title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=YES">
+		<title>HKOSC 2015</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<script type="text/javascript">
 			var profile = {
 				    "id": "00000",
@@ -25,12 +28,38 @@
 		</script>
 	</head>
 	<body>
-		<div id="title" class="title">Hong Kong Open Source Conference</div>
-		<div id="full_name" class="name">XXX</div>
-		<div id="role" class="role"></div>
-		<div id="tags" class="tags"></div>
-		<div id="qrcode" class="qrcode"></div>
-		
+		<div class="container">
+			<div class="row">
+				<div class="span8" style="background-color: gray">Hong Kong Open Source Conference</div>
+				<div class="span4" style="background-color: yellow">...</div>
+			</div>
+			<div class="row">
+				<div id="title" class="title span3"></div>
+				<div id="full_name" class="name span3">XXX</div>
+				<div id="role" class="role span2"></div>
+				<div id="tags" class="tags span2"></div>
+				<div id="qrcode span2" class="qrcode"></div>
+				
+						
+			</div>
+			
+			<div class="row">
+				<div lang="zh-tw" class="span4">哈囉TW</div>
+		        <div lang="en" class="span4">哈囉EN</div>
+		        <div id="my_date_time" class="span4"></div>
+			</div>
+			
+			<button type="button" class="btn btn-default" aria-label="Left Align">
+			  <span class="glyphicon glyphicon-oil" aria-hidden="true"></span>
+			</button>
+
+
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/moment.js"></script>
 		<script type="text/javascript">
 
 			var divFullName = document.getElementById("full_name");
@@ -61,7 +90,20 @@
 			
 			divTags.innerHTML = strTag;
 			
+			// Show Current Time
+			setInterval(function(){
+				
+				var t = moment().format('MMMM Do YYYY, h:mm:ss a');
+				
+				var myDateTime = document.getElementById("my_date_time");
+				
+				myDateTime.innerHTML = t;
+	
+	
+			}, 1000);
+			
 			
 		</script>
+		
 	</body>
 </html>
